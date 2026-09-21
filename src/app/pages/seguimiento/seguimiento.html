@@ -1,0 +1,63 @@
+<div class="main-layout">
+  <header class="navbar">
+    <div class="brand">
+      <div class="logo-circle">PM</div>
+      <div class="brand-text">
+        <span class="since">DESDE 1980</span>
+        <span class="name">Panaderia Merino</span>
+      </div>
+    </div>
+
+    <nav class="nav-links">
+      <button type="button" class="nav-btn" (click)="navegar('productos')">Productos</button>
+      <button type="button" class="nav-btn" (click)="navegar('carrito')">Carrito</button>
+      <button type="button" class="nav-btn" (click)="navegar('pago')">Pago</button>
+      <button type="button" class="nav-btn active" (click)="navegar('seguimiento')">Seguimiento</button>
+      <button type="button" class="nav-btn" (click)="navegar('perfil')">Perfil</button>
+    </nav>
+  </header>
+
+  <section class="tracking-title-section">
+    <span class="badge">RASTREO EN TIEMPO REAL</span>
+    <h1>Sigue tu pedido</h1>
+  </section>
+
+  <main class="tracking-grid">
+    
+    <div class="map-card">
+      <div class="map-overlay">
+        <p>🗺️ Mapa de Entrega</p>
+      </div>
+    </div>
+
+    <div class="status-card">
+      
+      <div class="action-buttons">
+        <button type="button" class="btn-action primary" (click)="simularRecorrido()">Simular recorrido</button>
+        <button type="button" class="btn-action secondary" (click)="usarUbicacion()">Usar mi ubicación</button>
+      </div>
+
+      <div class="current-status-box">
+        <h3>{{ estadoActual }}</h3>
+        <p>Progreso: {{ progreso }}%</p>
+        <span class="last-update">Última actualización: {{ ultimaActualizacion }}</span>
+      </div>
+
+      <div class="order-status-list">
+        <h3>Estado del pedido</h3>
+
+        <div class="status-item" *ngFor="let estado of estados" [class.completed]="estado.completado">
+          <div class="icon-circle">
+            {{ estado.icono }}
+          </div>
+          <div class="status-text">
+            <h4>{{ estado.titulo }}</h4>
+            <span class="subtext">{{ estado.subtitulo }}</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </main>
+</div>

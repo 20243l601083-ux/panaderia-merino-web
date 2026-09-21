@@ -1,0 +1,49 @@
+<div class="main-layout">
+  <header class="navbar">
+    <div class="brand">
+      <div class="logo-circle">PM</div>
+      <div class="brand-text">
+        <span class="since">DESDE 1980</span>
+        <span class="name">Panaderia Merino</span>
+      </div>
+    </div>
+
+    <nav class="nav-links">
+      <button type="button" class="nav-btn active" routerLink="/productos">Productos</button>
+      <button type="button" class="nav-btn" routerLink="/carrito">Carrito</button>
+      <button type="button" class="nav-btn" routerLink="/pago">Pago</button>
+      <button type="button" class="nav-btn" routerLink="/seguimiento">Seguimiento</button>
+      <button type="button" class="nav-btn" routerLink="/perfil">Perfil</button>
+    </nav>
+  </header>
+
+  <main class="catalog-container">
+    <div class="catalog-header">
+      <span class="subtitle">LA MEJOR PANADERÍA ARTESANAL</span>
+      <h1>Nuestros productos</h1>
+      <p class="description">
+        Descubre panes y dulces frescos con una presentación moderna, cálida y elegante.
+      </p>
+    </div>
+
+    <div class="products-grid">
+      <div class="product-card" *ngFor="let prod of productos">
+        <div class="image-wrapper">
+          <!-- AHORA ES DINÁMICO: toma la imagen asignada a cada producto -->
+          <img [src]="prod.imagen" [alt]="prod.nombre" class="product-image" />
+        </div>
+        
+        <div class="product-details">
+          <span class="price">{{ prod.precio.toFixed(2) }} $</span>
+          <h3 class="product-name">{{ prod.nombre }}</h3>
+          
+          <div class="counter-controls">
+            <button type="button" class="btn-circle" (click)="decrementar(prod)">-</button>
+            <span class="count">{{ prod.cantidad }}</span>
+            <button type="button" class="btn-circle plus" (click)="incrementar(prod)">+</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>

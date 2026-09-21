@@ -1,0 +1,100 @@
+<div class="perfil-header-nav">
+  <button type="button" class="btn-back" (click)="navegar('productos')">
+    ← Volver a productos
+  </button>
+</div>
+
+<div class="perfil-container">
+  <!-- Tarjeta 1: Resumen de usuario -->
+  <div class="card-perfil sidebar">
+    <div class="avatar-circle">
+      {{ iniciales }}
+    </div>
+    <span class="tag-perfil">PERFIL DE USUARIO</span>
+    <h2>{{ nombreCompleto }}</h2>
+    <p class="descripcion-perfil">
+      Aquí puedes revisar y editar tus datos principales.
+    </p>
+    <button class="btn-logout" (click)="cerrarSesion()">Cerrar sesión</button>
+  </div>
+
+  <!-- Tarjeta 2: Información Personal -->
+  <div class="card-perfil main-info">
+    <div class="card-header">
+      <h3>Información personal</h3>
+      <span class="badge-editable">Editable</span>
+    </div>
+
+    <form (ngSubmit)="guardarPerfil()">
+      <div class="form-group">
+        <label>Nombre</label>
+        <input type="text" [(ngModel)]="usuario.nombre" name="nombre" class="form-input" />
+      </div>
+
+      <div class="form-group">
+        <label>Apellidos</label>
+        <input type="text" [(ngModel)]="usuario.apellidos" name="apellidos" class="form-input" />
+      </div>
+
+      <div class="form-group">
+        <label>Correo</label>
+        <input type="email" [(ngModel)]="usuario.correo" name="correo" class="form-input" />
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label>Teléfono</label>
+          <input type="tel" [(ngModel)]="usuario.telefono" name="telefono" class="form-input" />
+        </div>
+        <div class="form-group">
+          <label>Municipio</label>
+          <input type="text" [(ngModel)]="usuario.municipio" name="municipio" class="form-input" />
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label>Colonia</label>
+          <input type="text" [(ngModel)]="usuario.colonia" name="colonia" class="form-input" />
+        </div>
+        <div class="form-group">
+          <label>Dirección</label>
+          <input type="text" [(ngModel)]="usuario.direccion" name="direccion" class="form-input" />
+        </div>
+      </div>
+
+      <button type="submit" class="btn-guardar">Guardar cambios</button>
+    </form>
+  </div>
+
+  <!-- Tarjeta 3: Datos de Pago -->
+  <div class="card-perfil pago-info">
+    <div class="card-header">
+      <h3>Datos de pago</h3>
+      <button type="button" class="btn-toggle" (click)="toggleMostrarTarjeta()">
+        {{ mostrarTarjeta ? '🔒 Ocultar' : '👁 Mostrar' }}
+      </button>
+    </div>
+
+    <div class="form-group">
+      <label>Alias de la tarjeta</label>
+      <input type="text" [value]="datosPago.alias" readonly class="form-input" />
+    </div>
+
+    <div class="form-group">
+      <label>Número de tarjeta</label>
+      <input type="text" [value]="mostrarTarjeta ? '4152 **** **** 1234' : datosPago.numeroTarjeta" readonly class="form-input" />
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>CVC</label>
+        <input type="text" [value]="mostrarTarjeta ? '852' : datosPago.cvc" readonly class="form-input-code" />
+      </div>
+      <div class="form-group">
+        <label>Fecha de vencimiento</label>
+        <input type="text" [value]="mostrarTarjeta ? '12/28' : datosPago.fechaVencimiento" readonly class="form-input-code" />
+      </div>
+    </div>
+  </div>
+</div>

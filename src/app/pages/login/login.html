@@ -1,0 +1,67 @@
+<div class="login-wrapper">
+  <div class="container" [class.toggle]="isToggle">
+    <div class="container-form">
+      
+      <form class="sign-in" (ngSubmit)="onLogin()">
+        <h2>Iniciar sesión</h2>
+        <div class="social-networks">
+          <i class="fa-brands fa-google"></i>
+          <i class="fa-brands fa-facebook-f"></i>
+          <i class="fa-brands fa-instagram"></i>
+          <i class="fa-brands fa-x-twitter"></i>
+          <i class="fa-brands fa-tiktok"></i>
+        </div>
+        <span>Use su correo y contraseña</span>
+        <div class="container-input">
+          <ion-icon name="mail-outline"></ion-icon>
+          <input type="email" name="loginEmail" placeholder="Email" [(ngModel)]="email" required>
+        </div>
+        <div class="container-input">
+          <ion-icon name="lock-closed-outline"></ion-icon>
+          <input type="password" name="loginPassword" placeholder="Password" [(ngModel)]="password" required>
+        </div>
+        <a href="#">¿Olvidaste tu contraseña?</a>
+        <button type="button" class="button" (click)="onLogin()">Iniciar sesión</button>
+      </form>
+
+      <form class="sign-up" (ngSubmit)="onRegister()">
+        <h2>Registrarse</h2>
+        <div class="social-networks">
+          <i class="fa-brands fa-google"></i>
+          <i class="fa-brands fa-facebook-f"></i>
+          <i class="fa-brands fa-instagram"></i>
+          <i class="fa-brands fa-x-twitter"></i>
+          <i class="fa-brands fa-tiktok"></i>
+        </div>
+        <span>Use su correo electrónico para registrarse</span>
+        <div class="container-input">
+          <ion-icon name="person-outline"></ion-icon>
+          <input type="text" name="regNombre" placeholder="Nombre" [(ngModel)]="nombre" required>
+        </div>
+        <div class="container-input">
+          <ion-icon name="mail-outline"></ion-icon>
+          <input type="email" name="regEmail" placeholder="Email" [(ngModel)]="email" required>
+        </div>
+        <div class="container-input">
+          <ion-icon name="lock-closed-outline"></ion-icon>
+          <input type="password" name="regPassword" placeholder="Password" [(ngModel)]="password" required>
+        </div>
+        <button type="button" class="button" (click)="onRegister()">Registrarse</button>
+      </form>
+
+    </div>
+
+    <div class="container-welcome">
+      <div class="welcome-sign-up welcome">
+        <h3>¡Bienvenido!</h3>
+        <p>Ingrese sus datos personales para usar todas las funciones del sitio</p>
+        <button type="button" class="button" (click)="toggleForm()">Registrarse</button>
+      </div>
+      <div class="welcome-sign-in welcome">
+        <h3>¡Hola!</h3>
+        <p>Regístrese con sus datos personales para usar todas las funciones del sitio</p>
+        <button type="button" class="button" (click)="toggleForm()">Iniciar sesión</button>
+      </div>
+    </div>
+  </div>
+</div>

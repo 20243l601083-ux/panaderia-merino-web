@@ -1,0 +1,244 @@
+.login-wrapper {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fdfaf6; /* Fondo crema suave */
+  overflow: hidden;
+}
+
+.container {
+  width: 800px;
+  height: 500px;
+  background-color: #fff;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(92, 64, 51, 0.15); /* Sombra cálida suave */
+  position: relative;
+}
+
+.container-form {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+
+  form {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0 40px;
+    transition: transform 0.6s ease-in-out;
+    background-color: #ffffff;
+
+    h2 {
+      font-size: 28px;
+      margin-bottom: 15px;
+      color: #4a3525; /* Café oscuro elegante */
+    }
+
+    span {
+      font-size: 12px;
+      margin-bottom: 15px;
+      color: #7a6858; /* Marrón medio */
+      text-align: center;
+    }
+
+    a {
+      color: #8c5a32; /* Tono cálido panadería */
+      font-size: 13px;
+      margin: 8px 0 15px;
+      text-decoration: none;
+      transition: color 0.2s ease;
+
+      &:hover {
+        color: #5c3a1e;
+      }
+    }
+  }
+}
+
+.social-networks {
+  font-size: 18px;
+  display: flex;
+  gap: 12px;
+  margin-bottom: 15px;
+
+  ion-icon {
+    border: 1px solid #e2d1b3; /* Borde beige */
+    border-radius: 6px;
+    padding: 8px;
+    cursor: pointer;
+    font-size: 20px;
+    color: #8c5a32; /* Íconos en café */
+    background-color: #faf6f0;
+    transition: background-color 0.2s ease;
+
+    &:hover {
+      background-color: #f4e8d1;
+    }
+  }
+}
+
+.container-input {
+  width: 100%;
+  max-width: 300px;
+  height: 40px;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 15px;
+  background-color: #faf6f0; /* Fondo beige muy claro */
+  border: 1px solid #e2d1b3; /* Borde sutil beige */
+  border-radius: 5px;
+
+  ion-icon {
+    font-size: 18px;
+    color: #8c5a32;
+  }
+
+  input {
+    border: none;
+    outline: none;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    font-size: 14px;
+    color: #4a3525;
+
+    &::placeholder {
+      color: #a39282;
+    }
+  }
+}
+
+.button {
+  width: 170px;
+  height: 45px;
+  font-size: 14px;
+  font-weight: 600;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+  background-color: #8c5a32; /* Café panadería */
+  color: #fff;
+  text-transform: uppercase;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: #724724;
+  }
+}
+
+.sign-in {
+  transform: translateX(0);
+}
+
+.sign-up {
+  transform: translateX(-100%);
+}
+
+/* Estado activo (.toggle): se invierten las posiciones */
+.container.toggle {
+  .sign-in {
+    transform: translateX(100%);
+  }
+
+  .sign-up {
+    transform: translateX(0);
+  }
+
+  .container-welcome {
+    transform: translateX(0);
+    background-color: #8c5a32; /* Café tostado al conmutar */
+    border-radius: 0 50% 50% 0;
+  }
+
+  .welcome-sign-up {
+    transform: translateX(-100%);
+  }
+
+  .welcome-sign-in {
+    transform: translateX(0);
+  }
+}
+
+.container-welcome {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  background-color: #c88a4b; /* Dorado / pan horneado */
+  display: flex;
+  align-items: center;
+  transform: translateX(100%);
+  transition: transform 0.6s ease-in-out, border-radius 0.6s ease-in-out, background-color 0.6s ease-in-out;
+  border-radius: 50% 0 0 50%;
+  overflow: hidden;
+  z-index: 10;
+}
+
+.welcome {
+  position: absolute;
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  padding: 0 30px;
+  color: #fff;
+  transition: transform 0.6s ease-in-out;
+
+  h3 {
+    font-size: 28px;
+    margin: 0;
+    text-align: center;
+  }
+
+  p {
+    font-size: 13px;
+    text-align: center;
+    line-height: 1.5;
+    color: #fdfaf6;
+    margin: 0;
+    width: 100%;
+    white-space: normal;
+    word-wrap: break-word;
+  }
+
+  .button {
+    border: 2px solid #fff;
+    background: transparent;
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+  }
+}
+
+.welcome-sign-up {
+  transform: translateX(0);
+}
+
+.welcome-sign-in {
+  transform: translateX(100%);
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px #faf6f0 inset !important;
+  -webkit-text-fill-color: #4a3525 !important;
+  transition: background-color 5000s ease-in-out 0s;
+}

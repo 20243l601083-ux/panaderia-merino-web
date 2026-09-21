@@ -1,0 +1,177 @@
+.perfil-header-nav {
+  padding: 15px 30px 0 30px;
+  background-color: #fdf8f3;
+
+  .btn-back {
+    background: transparent;
+    border: none;
+    color: #8b5e34;
+    font-size: 0.95rem;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    border-radius: 6px;
+
+    &:hover {
+      background-color: #f3ece7;
+    }
+  }
+}
+.perfil-container {
+  display: grid;
+  grid-template-columns: 280px 1fr 1fr;
+  gap: 20px;
+  padding: 30px;
+  background-color: #fdf8f3;
+  min-height: 80vh;
+
+  @media (max-width: 992px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.card-perfil {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+
+  .card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+
+    h3 {
+      font-size: 1.25rem;
+      color: #3d2b1f;
+      margin: 0;
+    }
+  }
+}
+
+.sidebar {
+  text-align: center;
+  
+  .avatar-circle {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-color: #e8d5c4;
+    color: #5c3a21;
+    font-size: 2rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 15px auto;
+  }
+
+  .tag-perfil {
+    font-size: 0.75rem;
+    color: #b08968;
+    font-weight: bold;
+    letter-spacing: 1px;
+  }
+
+  h2 {
+    font-size: 1.3rem;
+    color: #3d2b1f;
+    margin: 8px 0;
+  }
+
+  .descripcion-perfil {
+    font-size: 0.85rem;
+    color: #7f6a5b;
+  }
+
+  .btn-logout {
+    margin-top: 20px;
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #d97706;
+    color: #d97706;
+    background: transparent;
+    border-radius: 8px;
+    cursor: pointer;
+    &:hover {
+      background: #fff7ed;
+    }
+  }
+}
+
+.form-group {
+  margin-bottom: 15px;
+
+  label {
+    display: block;
+    font-size: 0.85rem;
+    color: #6b584c;
+    margin-bottom: 5px;
+  }
+}
+
+.form-input {
+  width: 100%;
+  padding: 10px 14px;
+  border: 1px solid #e2d9d2;
+  border-radius: 8px;
+  background-color: #faf7f5;
+  outline: none;
+  &:focus {
+    border-color: #b08968;
+    background-color: #fff;
+  }
+}
+
+/* Corrige los recuadros oscuros de CVC y Vencimiento */
+.form-input-code {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #e2d9d2;
+  border-radius: 8px;
+  background-color: #f3ece7;
+  color: #3d2b1f;
+  text-align: center;
+}
+
+.form-row {
+  display: flex;
+  gap: 12px;
+  .form-group {
+    flex: 1;
+  }
+}
+
+.badge-editable {
+  color: #b08968;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+.btn-toggle {
+  border: 1px solid #e2d9d2;
+  background: white;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  cursor: pointer;
+}
+
+.btn-guardar {
+  width: 100%;
+  background-color: #8b5e34;
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 10px;
+  &:hover {
+    background-color: #6f4724;
+  }
+}

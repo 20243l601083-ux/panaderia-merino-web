@@ -1,0 +1,221 @@
+@use 'sass:color';
+// ==========================================
+// VARIABLES DE ESTILO: PANADERÍA ARTESANAL
+// ==========================================
+$bg-app: #fbf7f0;       // Crema marfil (Fondo general)
+$card-bg: #ffffff;     // Blanco (Contenedor de pan)
+$color-crust: #c86d3b; // Terracota (Corteza de pan / Acentos)
+$color-cinnamon: #8b4513; // Marrón canela (Títulos y Logo)
+$color-text: #3e2723;   // Café oscuro (Lectura)
+$color-sub: #7a6a58;    // Marrón claro (Subtítulos)
+$btn-soft: #ebc3d7;     // Beige suave (Botones de incremento/decremento)
+
+.main-layout {
+  background-color: $bg-app;
+  min-height: 100vh;
+  font-family: 'Poppins', 'Segoe UI', sans-serif;
+  color: $color-text;
+}
+
+/* NAVBAR / HEADER */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 40px;
+
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    .logo-circle {
+      width: 48px;
+      height: 48px;
+      background-color: $color-cinnamon;
+      color: #ffffff;
+      font-weight: 700;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      box-shadow: 0 4px 10px rgba(139, 69, 19, 0.25);
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+
+      .since {
+        font-size: 10px;
+        letter-spacing: 1.5px;
+        color: $color-sub;
+        font-weight: 600;
+      }
+
+      .name {
+        font-size: 20px;
+        font-weight: 700;
+        color: $color-cinnamon;
+        font-family: 'Georgia', serif;
+      }
+    }
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 8px;
+
+    .nav-btn {
+      background: #ffffff;
+      border: 1px solid #e8dfd5;
+      border-radius: 20px;
+      padding: 7px 18px;
+      font-size: 13px;
+      color: $color-sub;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.25s ease;
+
+      &:hover {
+        background-color: $btn-soft;
+        color: $color-cinnamon;
+      }
+
+      &.active {
+        background-color: $color-crust;
+        color: #ffffff;
+        border-color: $color-crust;
+        box-shadow: 0 3px 8px rgba(200, 109, 59, 0.35);
+      }
+    }
+  }
+}
+
+/* SECCIÓN DEL CATÁLOGO */
+.catalog-container {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 20px 20px 60px;
+  text-align: center;
+}
+
+.catalog-header {
+  margin-bottom: 35px;
+
+  .subtitle {
+    font-size: 11px;
+    letter-spacing: 2px;
+    color: $color-crust;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+
+  h1 {
+    font-size: 42px;
+    color: $color-cinnamon;
+    margin: 8px 0;
+    font-weight: 700;
+    font-family: 'Georgia', serif;
+  }
+
+  .description {
+    font-size: 14px;
+    color: $color-sub;
+    max-width: 480px;
+    margin: 0 auto;
+    line-height: 1.5;
+  }
+}
+
+/* TARJETAS DE PRODUCTOS */
+.products-grid {
+  display: flex;
+  justify-content: center;
+  gap: 22px;
+  flex-wrap: wrap;
+}
+
+.product-card {
+  background-color: $card-bg;
+  border-radius: 22px;
+  padding: 12px;
+  width: 220px;
+  border: 1px solid #f2e9de;
+  box-shadow: 0 4px 15px rgba(62, 39, 35, 0.05);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 22px rgba(62, 39, 35, 0.12);
+  }
+
+  .image-wrapper {
+    width: 100%;
+    height: 165px;
+    border-radius: 16px;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  .product-details {
+    padding: 14px 5px 6px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .price {
+      font-size: 14px;
+      font-weight: 700;
+      color: $color-crust;
+      margin-bottom: 4px;
+    }
+
+    .product-name {
+      font-size: 16px;
+      font-weight: 700;
+      color: $color-text;
+      margin-bottom: 14px;
+    }
+  }
+}
+
+/* BOTONES CONTADORES */
+.counter-controls {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+
+  .btn-circle {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: none;
+    background-color: $btn-soft;
+    color: $color-cinnamon;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 16px;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+
+    &:hover {
+      background-color: color.adjust($btn-soft, $lightness: -5%);
+      transform: scale(1.05);
+    }
+  }
+
+  .count {
+    font-weight: 700;
+    font-size: 14px;
+    color: $color-text;
+  }
+}

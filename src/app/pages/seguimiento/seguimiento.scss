@@ -1,0 +1,239 @@
+$bg-app: #fbf7f0;
+$card-bg: #ffffff;
+$color-orange: #e57d4a;
+$color-orange-light: #fff3eb;
+$color-cinnamon: #8b4513;
+$color-text: #3e2723;
+$color-sub: #7a6a58;
+$color-green: #4caf50;
+
+.main-layout {
+  background-color: $bg-app;
+  min-height: 100vh;
+  font-family: 'Segoe UI', sans-serif;
+  color: $color-text;
+}
+
+/* NAVBAR */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 40px;
+
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    .logo-circle {
+      width: 45px;
+      height: 45px;
+      background-color: $color-cinnamon;
+      color: #fff;
+      font-weight: bold;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+
+      .since { font-size: 10px; color: $color-sub; }
+      .name { font-size: 18px; font-weight: bold; color: $color-cinnamon; font-family: 'Georgia', serif; }
+    }
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 8px;
+
+    .nav-btn {
+      background: #ffffff;
+      border: 1px solid #e8dfd5;
+      border-radius: 20px;
+      padding: 6px 14px;
+      font-size: 12px;
+      color: $color-sub;
+      cursor: pointer;
+
+      &.active {
+        background-color: $color-orange;
+        color: #fff;
+        border-color: $color-orange;
+      }
+    }
+  }
+}
+
+/* SECCIÓN TÍTULO */
+.tracking-title-section {
+  text-align: center;
+  margin: 30px 0 20px;
+
+  .badge {
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    font-weight: bold;
+    color: $color-orange;
+  }
+
+  h1 {
+    font-size: 36px;
+    color: $color-orange;
+    font-family: 'Georgia', serif;
+    margin: 5px 0 0;
+  }
+}
+
+/* GRID PRINCIPAL DE 2 COLUMNAS */
+.tracking-grid {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px 40px;
+  display: flex;
+  gap: 30px;
+  align-items: stretch;
+}
+
+/* COLUMNA IZQUIERDA: MAPA */
+.map-card {
+  flex: 1.2;
+  background-color: #f4ab7f; // Fondo naranja claro simulando el área destacada del mapa
+  border-radius: 24px;
+  min-height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  background-image: linear-gradient(135deg, #f7ba96 0%, #ee8a58 100%);
+
+  .map-overlay {
+    background: rgba(255, 255, 255, 0.85);
+    padding: 12px 24px;
+    border-radius: 20px;
+    font-weight: bold;
+    color: $color-text;
+  }
+}
+
+/* COLUMNA DERECHA: TARJETA DE ESTADO */
+.status-card {
+  flex: 1;
+  background: $card-bg;
+  border-radius: 24px;
+  padding: 30px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+
+  /* BOTONES SUPERIORES */
+  .action-buttons {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+
+    .btn-action {
+      border: none;
+      border-radius: 16px;
+      padding: 8px 16px;
+      font-size: 12px;
+      font-weight: bold;
+      cursor: pointer;
+
+      &.primary {
+        background-color: $color-orange;
+        color: #fff;
+      }
+
+      &.secondary {
+        background-color: #f8c087;
+        color: $color-text;
+      }
+    }
+  }
+
+  /* CAJA DE ESTADO ACTUAL */
+  .current-status-box {
+    background-color: $color-orange-light;
+    border-radius: 16px;
+    padding: 15px 20px;
+    margin-bottom: 25px;
+
+    h3 {
+      margin: 0 0 5px;
+      color: $color-orange;
+      font-size: 15px;
+    }
+
+    p {
+      margin: 0;
+      font-size: 12px;
+      color: $color-text;
+    }
+
+    .last-update {
+      font-size: 11px;
+      color: $color-sub;
+      display: block;
+      margin-top: 5px;
+    }
+  }
+
+  /* LISTA DE ESTADOS DEL PEDIDO */
+  .order-status-list {
+    h3 {
+      font-size: 16px;
+      color: $color-text;
+      margin-bottom: 20px;
+    }
+
+    .status-item {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin-bottom: 18px;
+
+      .icon-circle {
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        background-color: #f2e9e1;
+        color: $color-sub;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 14px;
+        font-weight: bold;
+      }
+
+      .status-text {
+        h4 {
+          margin: 0;
+          font-size: 14px;
+          color: $color-text;
+        }
+
+        .subtext {
+          font-size: 11px;
+          color: $color-sub;
+        }
+      }
+
+      /* Estilos para el estado completado (verde como en la foto) */
+      &.completed {
+        .icon-circle {
+          background-color: #e8f5e9;
+          color: $color-green;
+          border: 1px solid $color-green;
+        }
+
+        .status-text h4 {
+          color: $color-text;
+        }
+      }
+    }
+  }
+}

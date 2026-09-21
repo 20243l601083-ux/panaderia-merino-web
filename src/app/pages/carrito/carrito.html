@@ -1,0 +1,93 @@
+<div class="main-layout">
+  <header class="navbar">
+    <div class="brand">
+      <div class="logo-circle">PM</div>
+      <div class="brand-text">
+        <span class="since">DESDE 1980</span>
+        <span class="name">Panaderia Merino</span>
+      </div>
+    </div>
+
+    <nav class="nav-links">
+      <button type="button" class="nav-btn" (click)="navegar('productos')">Productos</button>
+      <button type="button" class="nav-btn active" (click)="navegar('carrito')">Carrito</button>
+      <button type="button" class="nav-btn" (click)="navegar('pago')">Pago</button>
+      <button type="button" class="nav-btn" (click)="navegar('seguimiento')">Seguimiento</button>
+      <button type="button" class="nav-btn" (click)="navegar('perfil')">Perfil</button>
+    </nav>
+  </header>
+
+  <main class="cart-container">
+    <div class="cart-header">
+      <span class="subtitle">TU COMPRA MÁS FRESCA</span>
+      <h1>Carrito de Compras</h1>
+    </div>
+
+    <div class="cart-content" *ngIf="items.length > 0; else carritoVacio">
+      <div class="items-list">
+        <div class="cart-item" *ngFor="let item of items">
+          <img [src]="item.imagen" [alt]="item.nombre" class="item-img">
+          
+          <div class="item-info">
+            <h3>{{ item.nombre }}</h3>
+            <span class="price">${{ item.precio.toFixed(2) }} c/u</span>
+          </div>
+
+          <div class="counter-controls">
+            <button type="button" class="btn-circle" (click)="decrementar(item)">-</button>
+            <span class="count">{{ item.cantidad }}</span>
+            <button type="button" class="btn-circle" (click)="incrementar(item)">+</button>
+          </div>
+
+          <div class="item-total">
+            ${{ (item.precio * item.cantidad).toFixed(2) }}
+          </div>
+
+          <button type="button" class="btn-remove" (click)="eliminarItem(item.id)">✕</button>
+        </div>
+      </div>
+
+      <div class="summary-card">
+        <h2>Resumen del Pedido</h2>
+
+        <div class="products-list-summary">
+          <div class="product-item-summary" *ngFor="let item of items">
+            <span class="product-name">{{ item.cantidad }} {{ item.nombre }}</span>
+            <span class="product-price">${{ (item.precio * item.cantidad).toFixed(2) }}</span>
+          </div>
+        </div>
+
+        <hr class="divider">
+
+        <div class="summary-row">
+          <span>Subtotal</span>
+          <span>${{ subtotal.toFixed(2) }}</span>
+        </div>
+        <div class="summary-row">
+          <span>Envío</span>
+          <span>${{ envio.toFixed(2) }}</span>
+        </div>
+
+        <hr class="divider">
+
+        <div class="summary-row total">
+          <span>Total</span>
+          <span>${{ total.toFixed(2) }}</span>
+        </div>
+
+        <button type="button" class="btn-checkout" (click)="navegar('pago')">
+          Proceder al Pago
+        </button>
+      </div>
+    </div>
+
+    <ng-template #carritoVacio>
+      <div class="empty-cart">
+        <p>Tu carrito está vacío actualmente.</p>
+        <button type="button" class="btn-checkout" (click)="navegar('productos')">
+          Ver Productos
+        </button>
+      </div>
+    </ng-template>
+  </main>
+</div>
