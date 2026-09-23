@@ -1,0 +1,37 @@
+<div class="main-layout">
+  <header class="navbar">
+    <div class="brand">
+      <div class="logo-circle">PM</div>
+      <div class="brand-text">
+        <span class="since">DESDE 1980</span>
+        <span class="name">Panaderia Merino</span>
+      </div>
+    </div>
+
+    <nav class="nav-links">
+      <button type="button" class="nav-btn" (click)="navegar('productos')">Productos</button>
+      <button type="button" class="nav-btn" (click)="navegar('carrito')">Carrito</button>
+      <button type="button" class="nav-btn" (click)="navegar('pago')">Pago</button>
+      <button type="button" class="nav-btn" (click)="navegar('seguimiento')">Seguimiento</button>
+      <button type="button" class="nav-btn" (click)="navegar('perfil')">Perfil</button>
+    </nav>
+  </header>
+
+  <main class="exito-container">
+    <div class="modal-card">
+      <span class="badge">Pago realizado con éxito</span>
+      
+      <h1>¡Gracias por tu compra!</h1>
+      <p class="subtitle">Tu pago se procesó correctamente y tu pedido está en camino.</p>
+
+      <div class="total-box">
+        <span>Pagado total</span>
+        <strong>{{ total }} $</strong>
+      </div>
+
+      <p class="footer-text">Gracias por confiar en Panadería Merino. Esperamos que disfrutes tu pedido.</p>
+
+      <button type="button" class="btn-orange" (click)="navegar('productos')">VER MÁS PRODUCTOS</button>
+    </div>
+  </main>
+</div>

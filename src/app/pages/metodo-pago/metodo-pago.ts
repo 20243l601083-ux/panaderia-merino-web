@@ -13,6 +13,7 @@ import { Router, RouterModule } from '@angular/router';
 export class MetodoPago implements OnInit {
   metodoSeleccionado: string = 'mercado_pago'; // Dejar seleccionado por defecto opcionalmente
   direccionEntrega: string = '';
+  totalCompra: number = 81.50; // Ejemplo de monto de compra o recabado del carrito
 
   constructor(private router: Router) {}
 
@@ -33,14 +34,27 @@ export class MetodoPago implements OnInit {
       return;
     }
 
-    // Mensaje de éxito simulado
-    alert('¡Pago procesado con éxito! Redirigiendo al seguimiento de tu pedido...');
-
-    // Limpiamos el carrito guardado para simular que la compra ya se completó
+    // Limpiamos el carrito guardado
     localStorage.removeItem('carrito');
 
-    // Redirigimos directamente a la pantalla de seguimiento
-    this.navegar('seguimiento');
+    if (this.metodoSeleccionado === 'mercado_pago') {
+      // 1. Si tu compañero tuviera el backend listo, aquí llamarías a su API para obtener el init_point/link de Mercado Pago.
+      // 2. Para simular el flujo completo en la interfaz hoy mismo:
+      this.simularRedireccionMercadoPago();
+    } else {
+      // Si eligen pago en efectivo u otro método, va directo al seguimiento
+      this.navegar('seguimiento');
+    }
+  }
+
+  private simularRedireccionMercadoPago() {
+    // Redirige a la pantalla de Éxito / Confirmación que tienes diseñada en tus fotos
+    this.router.navigate(['/exito'], { 
+      queryParams: { 
+        total: this.totalCompra, 
+        pedido: Math.floor(Math.random() * 100) + 10 
+      } 
+    });
   }
 
   navegar(ruta: string) {
