@@ -10,7 +10,7 @@ import { ActivatedRoute, Router, RouterModule } from '@angular/router';
   styleUrl: './exito.scss'
 })
 export class Exito implements OnInit {
-  total: string = '81.50';
+  total: string = '217.00';
 
   constructor(
     private route: ActivatedRoute,
