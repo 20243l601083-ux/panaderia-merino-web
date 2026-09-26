@@ -12,9 +12,9 @@ import { Router, RouterModule } from '@angular/router';
 })
 export class Perfil implements OnInit {
   usuario = {
-    nombre: 'Marta',
-    apellidos: 'Laura Gomez',
-    correo: 'Laura2@gmail.com',
+    nombre: 'Lizzette',
+    apellidos: 'Rodriguez',
+    correo: 'lizzetterodriguezmunoz@gmail.com',
     telefono: '',
     municipio: '',
     colonia: '',
